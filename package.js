@@ -1,12 +1,12 @@
 Package.describe({
   summary: 'Accounts Templates styled for Twitter Bootstrap.',
-  version: '1.14.2',
+  version: '1.14.3',
   name: 'wolas:bootstrap',
   git: 'https://github.com/wolasss/bootstrap.git',
 });
 
-Package.on_use(function(api, where) {
-  api.versionsFrom('2.2');
+Package.onUse(function(api, where) {
+  api.versionsFrom('2.3');
 
   api.use([
     'templating@1.4.0',
@@ -14,7 +14,7 @@ Package.on_use(function(api, where) {
   ], 'client');
 
   api.use([
-    'wolas:accounts-core',
+    'wolas:accounts-core@1.14.4',
   ], ['client', 'server']);
 
   // Requires all routing packages loads before this asking for weak dependencies.
@@ -22,10 +22,10 @@ Package.on_use(function(api, where) {
   api.use('useraccounts:iron-routing@1.14.2', ['client', 'server'], {weak: true});
 
   api.imply([
-    'wolas:accounts-core@1.14.2',
+    'wolas:accounts-core',
   ], ['client', 'server']);
 
-  api.add_files([
+  api.addFiles([
     'lib/at_error.html',
     'lib/at_error.js',
     'lib/at_form.html',
@@ -67,10 +67,10 @@ Package.on_use(function(api, where) {
   ], ['client']);
 });
 
-Package.on_test(function(api) {
+Package.onTest(function(api) {
   api.use([
     'wolas:bootstrap',
-    'wolas:accounts-core@1.14.2',
+    'wolas:accounts-core',
   ]);
 
   api.use([
@@ -79,7 +79,7 @@ Package.on_test(function(api) {
     'test-helpers'
   ], ['client', 'server']);
 
-  api.add_files([
+  api.addFiles([
     'tests/tests.js'
   ], ['client', 'server']);
 });
