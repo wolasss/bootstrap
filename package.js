@@ -1,6 +1,6 @@
 Package.describe({
   summary: 'Accounts Templates styled for Twitter Bootstrap.',
-  version: '1.14.3',
+  version: '1.14.5',
   name: 'wolas:bootstrap',
   git: 'https://github.com/wolasss/bootstrap.git',
 });
@@ -14,7 +14,7 @@ Package.onUse(function(api, where) {
   ], 'client');
 
   api.use([
-    'wolas:accounts-core@1.14.4',
+    'wolas:accounts-core@1.14.5',
   ], ['client', 'server']);
 
   // Requires all routing packages loads before this asking for weak dependencies.
